@@ -53,8 +53,8 @@ print("Started.")
 for queries in query:
    os.system(f"touch {queries}.txt")
    with open(f"{queries}.txt", "w") as output_file:
-       summaries = get_wikipedia_summaries(query)
+       summaries = get_wikipedia_summaries(queries)
        for summary in summaries:
-         output_file.write("<BOS>" + "\n" + summary + "\n" + "<EOS>" + "\n")
+         output_file.write(summary + "\n")
          count+=1
          print(count, "out of", (len(query)*500), "queries done")
